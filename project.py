@@ -1,9 +1,6 @@
-from matplotlib import pyplot as plt
+
 import streamlit as st
-import numpy as np
 import pandas as pd
-import altair as alt
-import time
 
 data_url = "https://www.dropbox.com/s/0gac54ifqvnqlrl/full_2020%20%281%29.csv?dl=1"
 @st.cache
