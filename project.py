@@ -13,5 +13,5 @@ def load_data(url):
     df = pd.read_csv(url)[:100]
     return df
 df = load_data(data_url)
-st.write(df.head())
+st.write(df['ancien_nom_commune'])
 
