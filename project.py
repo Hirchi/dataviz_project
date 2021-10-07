@@ -5,7 +5,9 @@ import pandas as pd
 import altair as alt
 import time
 
-data_url = "https://www.dropbox.com/s/0gac54ifqvnqlrl/full_2020%20%281%29.csv?dl=1"
+data_url = "https://www.dropbox.com/s/urt2xwwcvoujxlf/data_2020.csv?dl=1"
+
+
 @st.cache(max_entries=10, ttl=3600)
 def load_data(url):
     df = pd.read_csv(url)[:100]
