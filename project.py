@@ -5,7 +5,6 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 import altair as alt
-import sweetviz as sv
 import timeit
 import math
 
