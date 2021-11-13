@@ -7,16 +7,29 @@ import pandas as pd
 import altair as alt
 import timeit
 import math
+import streamlit as st
+import s3fs
+import os
 
-data_url_2020 = "https://www.dropbox.com/s/0gac54ifqvnqlrl/full_2020%20%281%29.csv?dl=1"
-data_url_2018 = "https://www.dropbox.com/s/abi9sgogvs85a5v/full_2019.csv?dl=1"
-data_url_2017 = "https://www.dropbox.com/s/t51r0nrax8fv0e6/full_2018.csv?dl=1"
-data_url_2016 = "https://www.dropbox.com/s/95u28qihqjh4x19/full_2017.csv?dl=1"
+# Create connection object.
+# `anon=False` means not anonymous, i.e. it uses access keys to pull data.
+fs = s3fs.S3FileSystem(anon=False)
 
+data_url_2020 = "s3://streamlitabdel/full_2020.csv"
+data_url_2018 = "s3://streamlitabdel/full_2019.csv"
+data_url_2017 = "s3://streamlitabdel/full_2018.csv"
+data_url_2016 = "s3://streamlitabdel/full_2017.csv"
+
+
+@st.cache(ttl=600)
+def read_file(filename):
+    with fs.open(filename) as f:
+        return f.read().decode("utf-8")
 
 @st.cache(allow_output_mutation=True)
 def load_data(url):
-    df = pd.read_csv(url, low_memory=False)
+    with fs.open(url) as f:
+        df = pd.read_csv(url, low_memory=False)
     return df
 
 
