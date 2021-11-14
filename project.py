@@ -16,9 +16,9 @@ import os
 fs = s3fs.S3FileSystem(anon=False)
 
 data_url_2020 = "s3://streamlitabdel/full_2020.csv"
-data_url_2018 = "s3://streamlitabdel/full_2019.csv"
-data_url_2017 = "s3://streamlitabdel/full_2018.csv"
-data_url_2016 = "s3://streamlitabdel/full_2017.csv"
+data_url_2019 = "s3://streamlitabdel/full_2019.csv"
+data_url_2018 = "s3://streamlitabdel/full_2018.csv"
+data_url_2017 = "s3://streamlitabdel/full_2017.csv"
 
 
 @st.cache(ttl=600)
@@ -29,7 +29,7 @@ def read_file(filename):
 @st.cache(allow_output_mutation=True)
 def load_data(url):
     with fs.open(url) as f:
-        df = pd.read_csv(url, low_memory=False, nrows = 900000)
+        df = pd.read_csv(url, low_memory=False, nrows = 100000)
     return df
 
 
@@ -210,7 +210,8 @@ if option == "2020":
     sns.heatmap(corrmat(df_2020), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    st.map(df_2020)
+    if st.sidebar.checkbox('show the map'):
+        st.map(df_2020)
 elif option=="2019":
     st.header("Load_data")
     df_2019 = load_data(data_url_2019)
@@ -279,7 +280,8 @@ elif option=="2019":
     sns.heatmap(corrmat(df_2019), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    st.map(df_2019)
+    if st.sidebar.checkbox('show the map'):
+        st.map(df_2019)
 elif option=="2018":
     st.header("Load_data")
     df_2018 = load_data(data_url_2018)
@@ -348,7 +350,8 @@ elif option=="2018":
     sns.heatmap(corrmat(df_2018), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    st.map(df_2018)
+    if st.sidebar.checkbox('show the map'):
+        st.map(df_2018)
 elif option == "2017":
     st.header("Load_data")
     df_2017 = load_data(data_url_2017)
@@ -417,7 +420,9 @@ elif option == "2017":
     sns.heatmap(corrmat(df_2017), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    st.map(df_2017)
+    if st.sidebar.checkbox('show the map'):
+        st.map(df_2017)
+    
 
 
 
