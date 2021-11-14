@@ -191,7 +191,7 @@ if option == "2020":
 
     st.header("surface_terrain' & nature_mutation")
     transform_mut_surf(df_2020).plot(kind='pie', y='sum',
-                                     autopct='%.2f', labels=df_2020['nature_mutation'], labelsize=4)
+                                     autopct='%.2f', labels=df_2020['nature_mutation'], textprops={'fontsize': 6})
     st.pyplot()
 
     st.header("nature_culture & valeur_fonciere")
@@ -398,7 +398,7 @@ elif option == "2017":
 
     st.header("surface_terrain' & nature_mutation")
     transform_mut_surf(df_2017).plot(kind='pie', y='sum',
-                                     autopct='%.2f', labels=df_2017['nature_mutation'], labelsize=4)
+                                     autopct='%.2f', labels=df_2017['nature_mutation'], textprops={'fontsize': 6})
     st.pyplot()
 
     st.header("nature_culture & valeur_fonciere")
