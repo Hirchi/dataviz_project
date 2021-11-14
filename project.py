@@ -29,7 +29,7 @@ def read_file(filename):
 @st.cache(allow_output_mutation=True)
 def load_data(url):
     with fs.open(url) as f:
-        df = pd.read_csv(url, low_memory=False)
+        df = pd.read_csv(url, low_memory=False, nrows = 100000)
     return df
 
 
