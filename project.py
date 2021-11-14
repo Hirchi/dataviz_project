@@ -210,7 +210,7 @@ if option == "2020":
     sns.heatmap(corrmat(df_2020), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    if st.sidebar.checkbox('show the map'):
+    if st.checkbox('show the map'):
         st.map(df_2020)
 elif option=="2019":
     st.header("Load_data")
@@ -280,7 +280,7 @@ elif option=="2019":
     sns.heatmap(corrmat(df_2019), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    if st.sidebar.checkbox('show the map'):
+    if st.checkbox('show the map'):
         st.map(df_2019)
 elif option=="2018":
     st.header("Load_data")
@@ -350,7 +350,7 @@ elif option=="2018":
     sns.heatmap(corrmat(df_2018), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    if st.sidebar.checkbox('show the map'):
+    if st.checkbox('show the map'):
         st.map(df_2018)
 elif option == "2017":
     st.header("Load_data")
@@ -420,7 +420,7 @@ elif option == "2017":
     sns.heatmap(corrmat(df_2017), vmax=.9, square=True) 
     st.pyplot()
     st.header("MAP")
-    if st.sidebar.checkbox('show the map'):
+    if st.checkbox('show the map'):
         st.map(df_2017)
     
 
