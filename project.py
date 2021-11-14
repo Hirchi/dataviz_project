@@ -225,7 +225,6 @@ elif option=="2019":
 
     df_2019 = drop_dataNA(df_2019)
     df_2019 = drop_dupicated(df_2019)
-    df_2019['lot1_numero'] = df_2019['lot1_numero'].astype('object')
     df_2019['code_postal'] = df_2019['code_postal'].astype('object')
     df_2019['code_type_local'] = df_2019['code_type_local'].astype('object')
     df_2019['type_local'] = df_2019['type_local'].astype('object')
@@ -295,7 +294,6 @@ elif option=="2018":
 
     df_2018 = drop_dataNA(df_2018)
     df_2018 = drop_dupicated(df_2018)
-    df_2018['lot1_numero'] = df_2018['lot1_numero'].astype('object')
     df_2018['code_postal'] = df_2018['code_postal'].astype('object')
     df_2018['code_type_local'] = df_2018['code_type_local'].astype('object')
     df_2018['type_local'] = df_2018['type_local'].astype('object')
@@ -365,7 +363,6 @@ elif option == "2017":
 
     df_2017 = drop_dataNA(df_2017)
     df_2017 = drop_dupicated(df_2017)
-    df_2017['lot1_numero'] = df_2017['lot1_numero'].astype('object')
     df_2017['code_postal'] = df_2017['code_postal'].astype('object')
     df_2017['code_type_local'] = df_2017['code_type_local'].astype('object')
     df_2017['type_local'] = df_2017['type_local'].astype('object')
